@@ -1,8 +1,7 @@
 # Links Barnacle
-A restfull API that serving a data for project links.rasio.dev
+A restfull API that serving a data for project links.rasio.dev. This API will provide data social media link, and highlight link
 
 ![](https://img.shields.io/badge/Version-1.0.0-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
-![](https://img.shields.io/badge/Build-Sucess-informational?style=flat&logo=<LOGO_NAME>&logoColor=white&color=2bbc8a)
 ![](https://img.shields.io/badge/NPM-6.14.8-informational?style=flat&logo=npm&logoColor=white&color=C83837)
 ---
 
