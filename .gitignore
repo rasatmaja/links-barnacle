@@ -7,3 +7,6 @@ build/
 
 # NPM package lock
 package-lock.json
+
+# Environtment files
+.env
