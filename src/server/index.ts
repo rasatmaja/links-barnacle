@@ -6,17 +6,20 @@
 
 import express, {Application} from 'express';
 import Routers from './router'
+import Config from '../config'
 
 class Server {
     private server: Application = express();
-    private routers: Routers = new Routers();;
+    private routers: Routers = new Routers();
+    private config: Config = new Config(); 
 
     constructor(){
         // setting up routing
         this.server.use('/api', this.routers.getRoutes());
 
         //setting up server host and port
-        this.server.listen(5000, () => console.log('Server running ...'));
+        let port = this.config.get("PORT")
+        this.server.listen(port, () => console.log('Server running ...'));
     }
 }
 
