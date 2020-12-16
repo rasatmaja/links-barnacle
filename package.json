@@ -12,11 +12,16 @@
     "type": "git",
     "url": "git+https://github.com/rasatmaja/links-barnacle.git"
   },
-  "keywords": ["RestAPI", "NodeJS", "ExpressJS", "TypeScript"],
+  "keywords": [
+    "RestAPI",
+    "NodeJS",
+    "ExpressJS",
+    "TypeScript"
+  ],
   "author": {
-    "name" : "Rasio Atmaja", 
-    "email" : "contact@rasio.dev", 
-    "url" : "https://rasio.dev/"
+    "name": "Rasio Atmaja",
+    "email": "contact@rasio.dev",
+    "url": "https://rasio.dev/"
   },
   "license": "MIT",
   "bugs": {
