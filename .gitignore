@@ -1,0 +1,9 @@
+# Dependency directories
+node_modules/
+
+# Build directories
+dist/
+build/
+
+# NPM package lock
+package-lock.json
