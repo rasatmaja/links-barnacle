@@ -3,16 +3,17 @@
  * 
  * @author Rasio Atmaja <contact@rasio.dev>
  */
-import express, {Application, Request, Response, NextFunction} from 'express';
+
+import express, {Application} from 'express';
+import Routers from './router'
 
 class Server {
     private server: Application = express();
+    private routers: Routers = new Routers();;
 
     constructor(){
         // setting up routing
-        this.server.get('/', (req: Request, res: Response, next: NextFunction) => {
-            res.send('Links Barnacle ready to serve')
-        })
+        this.server.use('/api', this.routers.getRoutes());
 
         //setting up server host and port
         this.server.listen(5000, () => console.log('Server running ...'));
