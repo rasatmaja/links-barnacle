@@ -1,0 +1,41 @@
+{
+  "name": "links-barnacle",
+  "version": "1.0.0",
+  "description": "A restfull API that serving a data for project links.rasio.dev",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node dist/app.js",
+    "dev": "nodemon src/app.ts",
+    "build": "tsc -p ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rasatmaja/links-barnacle.git"
+  },
+  "keywords": [
+    "RestAPI",
+    "NodeJS",
+    "ExpressJS",
+    "TypeScript"
+  ],
+  "author": {
+    "name": "Rasio Atmaja",
+    "email": "contact@rasio.dev",
+    "url": "https://rasio.dev/"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/rasatmaja/links-barnacle/issues"
+  },
+  "homepage": "https://github.com/rasatmaja/links-barnacle#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.9",
+    "@types/node": "^14.14.10",
+    "nodemon": "^2.0.6",
+    "ts-node": "^9.1.0",
+    "typescript": "^4.1.2"
+  }
+}
