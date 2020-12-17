@@ -5,8 +5,9 @@
  */
 
 import express, {Application} from 'express';
-import Routers from './router'
-import Config from '../config'
+import Routers from './router';
+import Config from '../config';
+import {log, fLog} from '../utils/log';
 
 class Server {
     private server: Application = express();
@@ -14,12 +15,31 @@ class Server {
     private config: Config = new Config(); 
 
     constructor(){
-        // setting up routing
-        this.server.use('/api', this.routers.getRoutes());
+        let flog = fLog.child({ ctx: "server", func: "contructor", reqID: "HSGY76HAK" });
 
+        log.debug("Starting server ...");
+
+        // setting up routing
+        let routes = this.routers.getRoutes()
+        this.server.use('/', routes);
+        this.walk(routes)
+        
         //setting up server host and port
         let port = this.config.get("PORT")
-        this.server.listen(port, () => console.log('Server running ...'));
+        this.server.listen(port, () => {
+            log.debug(`Server listening on PORT:${port}`);
+            log.debug(`Server running on PID:${process.pid}`)
+        });
+    }
+
+    private walk(routes: express.Router):void{
+        routes.stack
+        .filter(r => r.route)
+        .map(r => {
+            let method = Object.keys(r.route.methods)[0].toUpperCase();
+            let path = r.route.path
+            log.trace(`${method}: ${path}`)
+        });
     }
 }
 
