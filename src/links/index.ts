@@ -5,13 +5,30 @@
  */
 
 import { Response, Request } from "express";
+import { fLog } from "../utils/log";
 import GenerateRamdomString from "../utils/random.string";
 class Links {
   getLinks(req: Request, res: Response): void {
+    const reqID = req.headers["X-Request-ID"];
+    const flog = fLog.child({
+      ctx: "links",
+      func: "getlinks",
+      reqID: reqID,
+    });
+
+    flog.trace("Successfully retrive data");
     res.status(200).send(GenerateRamdomString(12, true, true, true));
   }
 
   getLink(req: Request, res: Response): void {
+    const reqID = req.headers["X-Request-ID"];
+    const flog = fLog.child({
+      ctx: "links",
+      func: "getlinks",
+      reqID: reqID,
+    });
+
+    flog.trace("Successfully retrive data");
     res.status(200).send("Links Barnacle ready to serve");
   }
 }
