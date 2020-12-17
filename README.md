@@ -10,8 +10,8 @@ A restfull API that serving a data for project links.rasio.dev. This API will pr
 * [NodeJS](https://nodejs.org/) - Node.js® is a JavaScript runtime built on Chrome's V8 JavaScript engine.
 * [Express](https://expressjs.com/) - Fast, unopinionated, minimalist web framework for Node.js
 * [TypeScript](https://www.typescriptlang.org/) - Typed JavaScript at Any Scale.
-* [Swagger](https://swagger.io/) - API Development
-for Everyone 
+* [Swagger](https://swagger.io/) - API Development for Everyone 
+* [Pino](https://getpino.io/) - Very low overhead Node.js logger.
 
 ## License
 This project is licensed under the terms of the **MIT** license.
