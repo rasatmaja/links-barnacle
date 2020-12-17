@@ -8,6 +8,7 @@ import express, { Application } from "express";
 import Routers from "./router";
 import Config from "../config";
 import { log } from "../utils/log";
+import trxMiddleware from "../middleware/transaction";
 
 class Server {
   private server: Application = express();
@@ -18,6 +19,7 @@ class Server {
     log.debug("Starting server ...");
 
     // setting up routing
+    this.server.use(trxMiddleware);
     const routes = this.routers.getRoutes();
     this.server.use("/", routes);
     this.walk(routes);

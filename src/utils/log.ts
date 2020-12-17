@@ -24,7 +24,7 @@ const fLog = pino({
     ignore: "pid,hostname,reqID,func,ctx",
     timestampKey: "time",
     translateTime: "yyyy-mm-dd HH:MM:ss",
-    messageFormat: '{msg} | reqID="{reqID}", ctx="{ctx}", func="{func}""',
+    messageFormat: '{msg}, reqID="{reqID}", ctx="{ctx}", func="{func}""',
   },
   prettifier: require("pino-pretty"),
 });
