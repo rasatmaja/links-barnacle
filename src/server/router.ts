@@ -13,6 +13,7 @@ class Routers {
 
     constructor(){
         this.routers.get('/links', this.links.getLinks);
+        this.routers.get('/link', this.links.getLink)
     }
 
     getRoutes(){
