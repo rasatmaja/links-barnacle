@@ -4,14 +4,14 @@
  * @author Rasio Atmaja <contact@rasio.dev>
  */
 
-import { Response } from "express";
+import { Response, Request } from "express";
 class Links {
-  getLinks(res: Response): void {
-    res.send("Links Barnacle ready to serve");
+  getLinks(req: Request, res: Response): void {
+    res.status(200).send("Links Barnacle ready to serve");
   }
 
-  getLink(res: Response): void {
-    res.send("Links Barnacle ready to serve");
+  getLink(req: Request, res: Response): void {
+    res.status(200).send("Links Barnacle ready to serve");
   }
 }
 

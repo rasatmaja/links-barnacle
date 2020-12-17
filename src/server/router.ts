@@ -1,23 +1,23 @@
 /**
  * Links Barnacle - A restfull API that serving a data for project links.rasio.dev.
- * 
+ *
  * @author Rasio Atmaja <contact@rasio.dev>
  */
 
-import express, { Router } from 'express'
-import Links from '../links'
+import express, { Router } from "express";
+import Links from "../links";
 
 class Routers {
-    private routers: Router = express.Router();
-    private links: Links = new Links();
+  private routers: Router = express.Router();
+  private links: Links = new Links();
 
-    constructor(){
-        this.routers.get('/links', this.links.getLinks);
-        this.routers.get('/link', this.links.getLink)
-    }
+  constructor() {
+    this.routers.get("/links", this.links.getLinks);
+    this.routers.get("/link", this.links.getLink);
+  }
 
-    getRoutes(){
-        return this.routers;
-    }
+  getRoutes(): express.Router {
+    return this.routers;
+  }
 }
-export default Routers
+export default Routers;
