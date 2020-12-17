@@ -13,6 +13,13 @@ A restfull API that serving a data for project links.rasio.dev. This API will pr
 * [Swagger](https://swagger.io/) - API Development for Everyone 
 * [Pino](https://getpino.io/) - Very low overhead Node.js logger.
 
+## What I Learn from this Project 
+On my journey to building this project I learned a few things like:
+
+1. Implement API with NodeJS and express
+2. Implement Pino Logger
+3. Implement REQUEST ID for tracing
+
 ## License
 This project is licensed under the terms of the **MIT** license.
 >You can check out the full license [here](https://github.com/rasatmaja/links-barnacle/blob/main/LICENSE) 
