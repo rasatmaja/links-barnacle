@@ -10,6 +10,10 @@ class Links {
     async getLinks(req: Request, res: Response, next: NextFunction) {
         res.send('Links Barnacle ready to serve')
     }
+
+    async getLink(req: Request, res: Response, next: NextFunction) {
+        res.send('Links Barnacle ready to serve')
+    }
     
 }
 
