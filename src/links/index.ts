@@ -5,9 +5,10 @@
  */
 
 import { Response, Request } from "express";
+import GenerateRamdomString from "../utils/random.string";
 class Links {
   getLinks(req: Request, res: Response): void {
-    res.status(200).send("Links Barnacle ready to serve");
+    res.status(200).send(GenerateRamdomString(12, true, true, true));
   }
 
   getLink(req: Request, res: Response): void {
