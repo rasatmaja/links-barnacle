@@ -30,7 +30,7 @@ class Server {
     this.walk(routes);
 
     //setting up server host and port
-    const port = this.config.get("PORT");
+    const port = this.config.getNumb("server.port");
     this.server.listen(port, () => {
       log.debug(`Server listening on PORT:${port}`);
       log.debug(`Server running on PID:${process.pid}`);
