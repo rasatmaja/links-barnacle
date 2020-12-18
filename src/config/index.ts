@@ -43,6 +43,13 @@ class Config {
     }
     return this.cfg.get(key);
   }
+
+  getBool(key: string): boolean {
+    if (this.cfg.size == 0) {
+      this.initCfg();
+    }
+    return this.cfg.get(key);
+  }
 }
 
 export default Config;
