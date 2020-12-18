@@ -21,7 +21,9 @@
  */
 
 import cors from "cors";
+import Config from "../config";
 
+const configs = new Config();
 const options: cors.CorsOptions = {
   allowedHeaders: [
     "Origin",
@@ -30,7 +32,7 @@ const options: cors.CorsOptions = {
     "Accept",
     "X-Access-Token",
   ],
-  credentials: true,
+  credentials: configs.getBool("cors.allow.credential"),
   methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
   origin: "*",
   preflightContinue: false,
