@@ -9,6 +9,7 @@ import Routers from "./router";
 import Config from "../config";
 import { log } from "../utils/log";
 import trxMiddleware from "../middleware/transaction";
+import corsMiddleware from "../middleware/cors";
 
 class Server {
   private server: Application = express();
@@ -18,8 +19,12 @@ class Server {
   constructor() {
     log.debug("Starting server ...");
 
-    // setting up routing
+    //setting up middleware
+    this.server.use(corsMiddleware);
+    this.server.options("*", corsMiddleware);
+
     this.server.use(trxMiddleware);
+    // setting up routing
     const routes = this.routers.getRoutes();
     this.server.use("/", routes);
     this.walk(routes);
