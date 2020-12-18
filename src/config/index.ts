@@ -44,7 +44,21 @@ class Config {
     return this.cfg.get(key);
   }
 
+  getString(key: string): string {
+    if (this.cfg.size == 0) {
+      this.initCfg();
+    }
+    return this.cfg.get(key);
+  }
+
   getBool(key: string): boolean {
+    if (this.cfg.size == 0) {
+      this.initCfg();
+    }
+    return this.cfg.get(key);
+  }
+
+  getNumb(key: string): number {
     if (this.cfg.size == 0) {
       this.initCfg();
     }
