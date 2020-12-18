@@ -33,8 +33,8 @@ const options: cors.CorsOptions = {
     "X-Access-Token",
   ],
   credentials: configs.getBool("cors.allow.credential"),
-  methods: "GET,HEAD,OPTIONS,PUT,PATCH,POST,DELETE",
-  origin: "*",
+  methods: configs.getString("cors.allow.method"),
+  origin: configs.getString("cors.allow.origins"),
   preflightContinue: false,
 };
 const corsMiddleware = cors(options);
