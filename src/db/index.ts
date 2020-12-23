@@ -1,13 +1,15 @@
 import mysql from "mysql";
+import Config from "../config";
 
 class DBConnection {
+  private configs = new Config();
   private db;
   constructor() {
     this.db = mysql.createPool({
-      host: "",
-      user: "",
-      password: "",
-      database: "",
+      host: this.configs.getString("db.host"),
+      user: this.configs.getString("db.username"),
+      password: this.configs.getString("db.password"),
+      database: this.configs.getString("db.name"),
     });
 
     this.checkConnection();
