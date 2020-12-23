@@ -6,7 +6,8 @@
 
 import { Response, Request } from "express";
 import { fLog } from "../utils/log";
-import GenerateRamdomString from "../utils/random.string";
+import LinksModels from "./models";
+import LinkRepo from "./repository";
 class Links {
   getLinks(req: Request, res: Response): void {
     const reqID = req.headers["X-Request-ID"];
@@ -16,8 +17,49 @@ class Links {
       reqID: reqID,
     });
 
-    flog.trace("Successfully retrive data");
-    res.status(200).send(GenerateRamdomString(12, true, true, true));
+    const links = LinkRepo.getAll();
+    links.then(function (results) {
+      flog.trace("Successfully retrive data");
+      const arrLinks: LinksModels[] = [];
+      if (Array.isArray(results)) {
+        results.forEach((result) => {
+          arrLinks.push(
+            new LinksModels({
+              id: result.ID,
+              name: result.NAME,
+              section: result.SECTION,
+              color: result.COLOR,
+              description: result.DESCRIPTIONS,
+            })
+          );
+        });
+
+        type responseType = {
+          [key: string]: Array<LinksModels>;
+        };
+
+        const resMap: responseType = {};
+        arrLinks.forEach((link) => {
+          const section = link.section as string;
+          let arrLinkModel = resMap[section];
+          link.section = undefined;
+          if (arrLinkModel) {
+            arrLinkModel.push(link);
+            resMap[section] = arrLinkModel;
+          } else {
+            arrLinkModel = <LinksModels[]>[];
+            arrLinkModel.push(link);
+            resMap[section] = arrLinkModel;
+          }
+        });
+        res.status(200).json(resMap);
+      }
+    });
+
+    links.catch(function (reason) {
+      flog.trace("Error retrive data");
+      res.status(500).json(reason);
+    });
   }
 
   getLink(req: Request, res: Response): void {
