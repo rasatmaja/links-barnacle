@@ -1,3 +1,9 @@
+/**
+ * Links Barnacle - A restfull API that serving a data for project links.rasio.dev.
+ *
+ * @author Rasio Atmaja <contact@rasio.dev>
+ */
+
 import mysql from "mysql";
 import Config from "../config";
 import { fLog } from "../utils/log";

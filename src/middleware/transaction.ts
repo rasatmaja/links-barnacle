@@ -1,3 +1,9 @@
+/**
+ * Links Barnacle - A restfull API that serving a data for project links.rasio.dev.
+ *
+ * @author Rasio Atmaja <contact@rasio.dev>
+ */
+
 import { Response, Request, NextFunction } from "express";
 import { fLog } from "../utils/log";
 import GenerateRamdomString from "../utils/random.string";
