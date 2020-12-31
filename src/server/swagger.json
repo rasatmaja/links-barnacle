@@ -1,0 +1,52 @@
+
+{
+    "openapi": "3.0.0",
+    "info": {
+        "version": "1.0.0",
+        "title": "Links Barnacle",
+        "description": "A restfull API that serving a data for project links.rasio.dev",
+        "license": {
+            "name": "MIT",
+            "url": "https://github.com/rasatmaja/links-barnacle/blob/main/LICENSE"
+        }
+    },
+    "servers": [
+        {
+            "url": "/",
+            "description": "Production Server"
+        }
+    ],
+    "tags": [
+        {
+            "name": "Links",
+            "description": "API for access rasio links resources"
+        }
+    ],
+    "consumes": [
+        "application/json"
+    ],
+    "produces": [
+        "application/json"
+    ],
+    "paths": {
+        "/links": {
+            "get": {
+                "tags": [
+                    "Links"
+                ],
+                "summary": "Get all avaliable likf from database",
+                "responses": {
+                    "200": {
+                        "description": "✅ OK"
+                    },
+                    "404": {
+                        "description": "⚠️  Not Found"
+                    },
+                    "500": {
+                        "description": "⛔️ Internal Server Error"
+                    }
+                }
+            }
+        }
+    }
+}
