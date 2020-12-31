@@ -10,11 +10,11 @@ import Server from "./server";
 new Server();
 
 process.on("SIGTERM", () => {
-  console.log(`Process ${process.pid} received a SIGTERM signal`);
+  console.log(`\n🏇🏻 Process ${process.pid} received a SIGTERM signal`);
   process.exit(0);
 });
 
 process.on("SIGINT", () => {
-  console.log(`Process ${process.pid} has been interrupted`);
+  console.log(`\n🏇🏻 Process ${process.pid} has been interrupted`);
   process.exit(0);
 });
