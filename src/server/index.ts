@@ -10,6 +10,8 @@ import Config from "../config";
 import { log } from "../utils/log";
 import trxMiddleware from "../middleware/transaction";
 import corsMiddleware from "../middleware/cors";
+import * as swaggerDocument from "./swagger.json";
+import swaggerUI from "swagger-ui-express";
 
 class Server {
   private server: Application = express();
@@ -24,10 +26,20 @@ class Server {
     this.server.options("*", corsMiddleware);
 
     this.server.use(trxMiddleware);
+
     // setting up routing
     const routes = this.routers.getRoutes();
     this.server.use("/", routes);
     this.walk(routes);
+
+    //setting up swagger UI documentations
+    log.trace("🍬 Starting Swagger UI ...");
+    this.server.use(
+      "/links/docs",
+      swaggerUI.serve,
+      swaggerUI.setup(swaggerDocument)
+    );
+    log.trace("🍬 Swagger Documentation avaliable on: /links/docs");
 
     //setting up server host and port
     const port = this.config.getNumb("server.port");
