@@ -1,3 +1,9 @@
+/**
+ * Links Barnacle - A restfull API that serving a data for project links.rasio.dev.
+ *
+ * @author Rasio Atmaja <contact@rasio.dev>
+ */
+
 class LinksModels {
   id!: number;
   section?: string;
