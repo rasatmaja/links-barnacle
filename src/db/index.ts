@@ -1,6 +1,6 @@
 import mysql from "mysql";
 import Config from "../config";
-
+import { fLog } from "../utils/log";
 class DBConnection {
   private configs = new Config();
   private db;
@@ -16,37 +16,52 @@ class DBConnection {
   }
 
   checkConnection() {
+    const flog = fLog.child({
+      ctx: "db",
+      func: "checkConnection",
+      reqID: "",
+    });
+
     this.db.getConnection((err, connection) => {
       if (err) {
         if (err.code === "PROTOCOL_CONNECTION_LOST") {
-          console.error("Database connection was closed.");
+          flog.error("⛔️ Database connection was closed.");
         }
         if (err.code === "ER_CON_COUNT_ERROR") {
-          console.error("Database has too many connections.");
+          flog.error("🤯 Database has too many connections.");
         }
         if (err.code === "ECONNREFUSED") {
-          console.error("Database connection was refused.");
+          flog.error("⛔️ Database connection was refused.");
         }
       }
       if (connection) {
+        flog.trace("⚠️  Database connection release");
         connection.release();
       }
       return;
     });
   }
 
-  query = async (sql: string, values?: string[]) => {
+  query = async (reqID: string, sql: string, values?: string[]) => {
+    const flog = fLog.child({
+      ctx: "db",
+      func: "query",
+      reqID: reqID,
+    });
     return new Promise((resolve, reject) => {
       const callback = (error: unknown, result: unknown) => {
         if (error) {
+          flog.error(`callback got ${error}`);
           reject(error);
           return;
         }
+        flog.trace(`callback resolved`);
         resolve(result);
       };
       // execute will internally call prepare and query
       this.db.query(sql, values, callback);
     }).catch((err) => {
+      flog.error(`catch error: ${err}`);
       throw err;
     });
   };
