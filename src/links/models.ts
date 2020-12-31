@@ -10,6 +10,7 @@ class LinksModels {
   name: string;
   description?: string;
   color?: string;
+  hyperlinks: string;
 
   constructor(data: Partial<LinksModels>) {
     this.id = data.id || 0;
@@ -17,6 +18,7 @@ class LinksModels {
     this.section = data.section;
     this.description = data.description || "";
     this.color = data.color || "";
+    this.hyperlinks = data.hyperlinks || "";
   }
 }
 
