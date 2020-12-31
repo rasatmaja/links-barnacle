@@ -5,9 +5,12 @@
  */
 
 import pino from "pino";
+import Config from "../config";
+
+const config = new Config();
 const log = pino({
   safe: true,
-  level: "trace",
+  level: config.getString("log.level"),
   prettyPrint: {
     levelFirst: true,
     ignore: "pid,hostname,reqID,func,ctx",
@@ -18,7 +21,7 @@ const log = pino({
 });
 const fLog = pino({
   safe: true,
-  level: "trace",
+  level: config.getString("log.level"),
   prettyPrint: {
     levelFirst: true,
     ignore: "pid,hostname,reqID,func,ctx",
