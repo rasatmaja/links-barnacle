@@ -17,6 +17,8 @@ class Config {
     this.cfg.set("server.host", process.env.APP_SERVER_HOST || "localhost");
     this.cfg.set("server.port", process.env.APP_SERVER_PORT || 5000);
 
+    this.cfg.set("log.level", process.env.APP_LOG_LEVEL || "debug");
+
     // Database Setup
     this.cfg.set("db.host", process.env.APP_DB_HOST || "localhost");
     this.cfg.set("db.port", process.env.APP_DB_PORT || 3306);
