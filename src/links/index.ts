@@ -35,6 +35,7 @@ class Links {
                 section: result.SECTION,
                 color: result.COLOR,
                 description: result.DESCRIPTIONS,
+                hyperlinks: result.HYPERLINKS,
               })
             );
           });
