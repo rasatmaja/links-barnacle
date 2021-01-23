@@ -14,6 +14,7 @@ class Routers {
   constructor() {
     this.routers.get("/", this.links.getLinks);
     this.routers.get("/test", this.links.getLink);
+    this.routers.get("/heartbeat", this.links.heartbeat);
   }
 
   getRoutes(): express.Router {

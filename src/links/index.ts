@@ -78,6 +78,18 @@ class Links {
     flog.trace("Successfully retrive data");
     res.status(200).send("Links Barnacle ready to serve");
   }
+
+  heartbeat(req: Request, res: Response): void {
+    const reqID = req.headers["X-Request-ID"];
+    const flog = fLog.child({
+      ctx: "links",
+      func: "heartbeat",
+      reqID: reqID,
+    });
+
+    flog.trace("Successfully retrive data");
+    res.status(200).send("Heartbeat detected ❤️ ");
+  }
 }
 
 export default Links;
