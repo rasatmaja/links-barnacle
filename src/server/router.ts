@@ -12,8 +12,8 @@ class Routers {
   private links: Links = new Links();
 
   constructor() {
-    this.routers.get("/links", this.links.getLinks);
-    this.routers.get("/link", this.links.getLink);
+    this.routers.get("/", this.links.getLinks);
+    this.routers.get("/test", this.links.getLink);
   }
 
   getRoutes(): express.Router {
