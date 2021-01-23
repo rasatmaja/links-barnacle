@@ -29,7 +29,7 @@ class Server {
 
     // setting up routing
     const routes = this.routers.getRoutes();
-    this.server.use("/", routes);
+    this.server.use("/links/", routes);
     this.walk(routes);
 
     //setting up swagger UI documentations
